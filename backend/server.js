@@ -1,4 +1,3 @@
-console.log("happy");
 const express = require('express');
 const cors = require('cors')
 const bodyParser = require('body-parser')
@@ -61,13 +60,6 @@ app.get("/list", (req, res) => {
 })
 
 app.delete("/delete", (req, res) => {
-    // carsMockData.forEach((item) => {
-    //     if(item.id === req.body.id){
-    //         res.status(500).send('No car with give id exists')
-    //         return;
-    //     }
-    // })
-
     let foundCarWithId = carsMockData.some(car => car.id === parseInt(req.body.id))
 
     if(foundCarWithId){
@@ -132,11 +124,5 @@ app.put("/edit", (req,res) => {
         res.status(500).send('No car with given id exist')
     }
 })
-
-
-
-
-
-
 
 app.listen(8000);
