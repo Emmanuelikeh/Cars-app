@@ -67,7 +67,7 @@ app.delete("/delete", (req, res) => {
         res.send(carsMockData);
     }
     else{
-        res.status(500).send('No car with give id exists')
+        res.status(500).statusMessage('No car with give id exists')
     }
 })
 
@@ -95,7 +95,7 @@ app.delete("/delete", (req, res) => {
 app.post("/save", (req,res) => {
     let foundCarWithId = carsMockData.some(car => car.id === parseInt(req.body.id))
     if(foundCarWithId){
-        res.status(500).send("Car already exists")
+        res.status(500).statusMessage("Car already exists")
     }
     else{
         let id = parseInt(req.body.id);
@@ -121,7 +121,7 @@ app.put("/edit", (req,res) => {
         res.send(carsMockData);
     }
     else{
-        res.status(500).send('No car with given id exist')
+        res.status(500).statusMessage('No car with given id exist')
     }
 })
 
